@@ -49,6 +49,13 @@
 #define MAX_COMMAND_SIZE 255    // The maximum command-line size
 
 
+    int16_t BPB_BytesPerSec;
+    int8_t BPB_SecPerClus;
+    int16_t BPB_RsvdSecCnt;
+    int32_t BPB_FATSz32;
+    int8_t BPB_NumFATs;
+    FILE *file = NULL;
+    int firstClusterAddress;
 
 // This method returns offset of the cluster
 int LBAtoOffset(int32_t sector)
@@ -121,13 +128,6 @@ struct DirectoryEntry dir[16];
 int main()
 {
 
-    int16_t BPB_BytesPerSec;
-    int8_t BPB_SecPerClus;
-    int16_t BPB_RsvdSecCnt;
-    int32_t BPB_FATSz32;
-    int8_t BPB_NumFATs;
-    FILE *file = NULL;
-    int firstClusterAddress;
 
   char * cmd_str = (char*) malloc( MAX_COMMAND_SIZE ); // this store the command entered by the user
 
