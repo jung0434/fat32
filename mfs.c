@@ -31,8 +31,13 @@
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <ctype.h>
+#include <sys/param.h>
 #include <string.h>
+#include <limits.h>
 #include <signal.h>
+#include <stdint.h>
+
 
 #define MAX_NUM_ARGUMENTS 3
 
